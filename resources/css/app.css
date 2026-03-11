@@ -1,16 +1,54 @@
 @import "tailwindcss";
-
+@import "@mdi/font/css/materialdesignicons.min.css";
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-@theme {
+/* @theme {
     --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
-}
+} */
 @plugin "daisyui" {
     themes: light --default;
 }
-@custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    --color-base-100: #f9f9f9f9;
+}
+/* @plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    --color-primary: blue;
+    --color-secondary: teal;
+} */
+/* ปรับให้รองรับ data-theme="dark" ตามที่ DaisyUI พ่นออกมา */
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *, @media (prefers-color-scheme: dark)));
+@font-face {
+    font-family: "google-sans";
+    src: url("../fonts/GoogleSans-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "kanit";
+    src: url("../fonts/Kanit-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+/* body {
+    font-family: "prompt", sans-serif;
+} */
+div,
+h1,
+h2,
+h3 {
+    font-family: "kanit", sans-serif;
+}
+
+p {
+    font-family: "google-sans", sans-serif;
+}

@@ -9,9 +9,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
-    <x-main-navbar />
-    <main class="container mx-auto bg-blue-700">
+<body class="h-[3000px]">
+    <nav class="sticky top-0 w-full z-10">
+        <x-main-navbar />
+    </nav>
+    <main class="">
         @yield('main-content')
     </main>
     <footer>
