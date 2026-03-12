@@ -1,23 +1,83 @@
 @extends('layouts.main')
+{{-- GA4 + Facebook Pixel + TikTok Pixel --}}
+@section('title', 'หน้าแรก')
 @section('main-content')
     <x-carousel />
-    <div class="container mx-auto flex flex-col gap-4 py-4">
-        <div class="flex items-center justify-center p-6">
-            <h1 class="text-6xl">สินค้า</h1>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            @for ($i = 0; $i < 9; $i++)
-                <div class="w-full h-full flex flex-col">
-                    <img src="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
-                        class="object-cover h-62 rounded-t-box">
-                    <div
-                        class="flex flex-col bg-white/20 backdrop-blur-md border border-white/30 px-4 py-1.5 rounded-b-2xl shadow-lg">
-                        <h2>หมวด 1</h2>
-                        <p>อธิบายหมวด 1</p>
+
+    <div class="container mx-auto flex flex-col gap-8 py-16 px-4">
+
+        {{-- สินค้า --}}
+        <section class="flex flex-col gap-8" data-aos="fade-up">
+            <div class="flex flex-col items-center gap-2">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">สินค้า</h2>
+                <div class="w-12 h-1 bg-blue-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                @for ($i = 0; $i < 3; $i++)
+                    <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}">
+                        <x-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
+                            title="สินค้า {{ $i + 1 }}" content="รายละเอียดสินค้า {{ $i + 1 }}" />
                     </div>
-                </div>
-            @endfor
-        </div>
+                @endfor
+            </div>
+        </section>
+
+        <hr class="border-gray-100">
+
+        {{-- ตัวอย่างผลงาน --}}
+        <section class="flex flex-col gap-8" data-aos="fade-up">
+            <div class="flex flex-col items-center gap-2">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">ตัวอย่างผลงาน</h2>
+                <div class="w-12 h-1 bg-blue-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                @for ($i = 0; $i < 3; $i++)
+                    <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}">
+                        <x-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
+                            title="ตัวอย่างผลงาน {{ $i + 1 }}" content="รายละเอียด {{ $i + 1 }}" />
+                    </div>
+                @endfor
+            </div>
+        </section>
+
+        <hr class="border-gray-100">
+
+        {{-- บทความ --}}
+        <section class="flex flex-col gap-8" data-aos="fade-up">
+            <div class="flex flex-col items-center gap-2">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">บทความ</h2>
+                <div class="w-12 h-1 bg-blue-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                @for ($i = 0; $i < 3; $i++)
+                    <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}">
+                        <x-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
+                            title="บทความ {{ $i + 1 }}" content="รายละเอียด {{ $i + 1 }}" />
+                    </div>
+                @endfor
+            </div>
+        </section>
+
+        <hr class="border-gray-100">
+
+        {{-- ใบรับรอง --}}
+        <section class="flex flex-col gap-8" data-aos="fade-up">
+            <div class="flex flex-col items-center gap-2">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">ใบรับรอง</h2>
+                <div class="w-12 h-1 bg-blue-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 place-items-center justify-center">
+                @for ($i = 0; $i < 7; $i++)
+                    <img data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}"
+                        src="/images/cer/c-{{ ($i % 4) + 1 }}.jpg" alt="ใบรับรอง {{ $i + 1 }}"
+                        class="w-full h-auto rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
+                @endfor
+            </div>
+        </section>
 
     </div>
 @endsection

@@ -42,10 +42,7 @@
 /* body {
     font-family: "prompt", sans-serif;
 } */
-div,
-h1,
-h2,
-h3 {
+body {
     font-family: "kanit", sans-serif;
 }
 
