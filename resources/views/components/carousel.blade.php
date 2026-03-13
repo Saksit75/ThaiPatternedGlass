@@ -1,4 +1,4 @@
-<div class="relative w-full h-[90vh] bg-gray-200 overflow-hidden" x-data="{
+<div data-aos="fade" class="relative w-full h-[90vh] bg-gray-200 overflow-hidden" x-data="{
     currentIndex: 0,
     images: [
         { url: '/images/a.webp', alt: 'กระจกลายพิกุล สีใส' },
@@ -22,8 +22,8 @@
         this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
         this.startInterval();
     }
-}" x-init="startInterval()"
-    @mouseenter="stopInterval()" @mouseleave="startInterval()">
+}"
+    x-init="startInterval()" @mouseenter="stopInterval()" @mouseleave="startInterval()">
     {{-- เพิ่อไม่ให้รูปเลื่อนเม่อเอาเมาส์ไปชี้ --}}
 
 

@@ -3,24 +3,36 @@
 @section('title', 'หน้าแรก')
 @section('main-content')
     <x-carousel />
-
     <div class="container mx-auto flex flex-col gap-8 py-16 px-4">
-
         {{-- สินค้า --}}
         <section class="flex flex-col gap-8" data-aos="fade-up">
             <div class="flex flex-col items-center gap-2">
+                {{-- <div class="flex items-center justify-between w-full">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">สินค้า</h2>
+                    <a href="">ดูทั้งหมด ></a>
+                </div> --}}
                 <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">สินค้า</h2>
                 <div class="w-12 h-1 bg-blue-500 rounded-full"></div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                @for ($i = 0; $i < 3; $i++)
-                    <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}">
-                        <x-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
-                            title="สินค้า {{ $i + 1 }}" content="รายละเอียดสินค้า {{ $i + 1 }}" />
-                    </div>
-                @endfor
+            <div class="flex flex-col gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    @for ($i = 0; $i < 3; $i++)
+                        <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}" class="cursor-pointer">
+                            <x-overlay-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
+                                title="สินค้า {{ $i + 1 }}" content="รายละเอียดสินค้า {{ $i + 1 }}" />
+                        </div>
+                    @endfor
+                </div>
+                <div class="flex items-center justify-end w-full">
+                    <a href="#"
+                        class="flex items-center gap-1 group text-blue-600 font-medium hover:scale-105 transform duration-200">
+                        เพิ่มเติม
+                        <span
+                            class="mdi mdi-chevron-double-right transition-transform duration-200 group-hover:translate-x-1"></span>
+                    </a>
+                </div>
             </div>
+
         </section>
 
         <hr class="border-gray-100">
@@ -34,8 +46,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @for ($i = 0; $i < 3; $i++)
-                    <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}">
-                        <x-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
+                    <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}" class="cursor-pointer">
+                        <x-overlay-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
                             title="ตัวอย่างผลงาน {{ $i + 1 }}" content="รายละเอียด {{ $i + 1 }}" />
                     </div>
                 @endfor
@@ -53,8 +65,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @for ($i = 0; $i < 3; $i++)
-                    <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}">
-                        <x-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
+                    <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}" class="cursor-pointer">
+                        <x-overlay-card image="/images/products/p-{{ ($i % 3) + 1 }}.jpg" alt="กระจกลายไทย"
                             title="บทความ {{ $i + 1 }}" content="รายละเอียด {{ $i + 1 }}" />
                     </div>
                 @endfor
@@ -71,7 +83,7 @@
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 place-items-center justify-center">
-                @for ($i = 0; $i < 7; $i++)
+                @for ($i = 0; $i < 4; $i++)
                     <img data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}"
                         src="/images/cer/c-{{ ($i % 4) + 1 }}.jpg" alt="ใบรับรอง {{ $i + 1 }}"
                         class="w-full h-auto rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">

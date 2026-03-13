@@ -9,14 +9,17 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="">
-    <div class="sticky top-0  z-10">
+<body>
+    <div class="sticky top-0 z-10">
         <x-main-navbar />
     </div>
-    <main class="">
+    <main>
         @yield('main-content')
     </main>
     <x-main-footer />
+    <div class="fixed right-5 bottom-5">
+        <x-float-contact />
+    </div>
 </body>
 
 </html>

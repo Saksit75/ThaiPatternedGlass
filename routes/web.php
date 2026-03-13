@@ -6,5 +6,5 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/project-reference', function () {
-    return view('project-reference');
+    return view('project-reference.index');
 });
